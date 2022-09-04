@@ -72,9 +72,12 @@ class Yolo:
         :return: return the x1,y1,x2,y2 coordinates of specific object.
         """
         x_shape, y_shape = img.shape[1], img.shape[0]
+        x1, y1, x2, y2= 0,0,0,0
         classid = self.classes.index(classname)
-        cord = self.objects[classid][instanceId]
-        x1, y1, x2, y2 = int(cord[0] * x_shape), int(cord[1] * y_shape), int(cord[2] * x_shape), int(cord[3] * y_shape)
+        if classid is not None:
+            cord = self.objects[classid][instanceId]
+            x1, y1, x2, y2 = int(cord[0] * x_shape), int(cord[1] * y_shape), int(cord[2] * x_shape), int(cord[3] * y_shape)
+
         return x1, y1, x2, y2
 
     def findCenter(self,x1, y1, x2, y2):
@@ -105,7 +108,7 @@ class Yolo:
         objarea= w*l
         h,w,_ = img.shape
         imgarea= h*w
-        ratio= objarea/imgarea
+        ratio= objarea*100/imgarea
         return ratio
 
 

@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3da289bc-8894-4133-aff0-f098e0795170" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drone.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helper/coco.names" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helper/dog_bike_car.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helper/perons.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolov5s.pt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Captain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helper/TrackCommands.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drone.py" beforeDir="false" afterPath="$PROJECT_DIR$/Drone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +47,33 @@
     "last_opened_file_path": "D:/Documents/Projects/Drone_Auto-Pilot"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.Drone">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Projects\Drone_Auto-Pilot\helper" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Captain">
+    <configuration name="Captain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Drone_Auto-Pilot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Captain.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Drone" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Drone_Auto-Pilot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -96,6 +118,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Captain" />
         <item itemvalue="Python.Drone" />
         <item itemvalue="Python.Model" />
       </list>
