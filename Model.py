@@ -18,7 +18,7 @@ class Yolo:
         """
 
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.model = torch.hub.load("ultralytics/yolov5", "yolov5s", pretrained=True)
+        self.model = torch.hub.load('yolov5', 'custom',path=r'D:\Documents\Projects\Drone_Auto-Pilot\yolov5s.pt', source='local')
         self.model.to(self.device)
         self.objects={ 0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}, 8: {}, 9: {}, 10: {}, 11: {}, 12: {}, 13: {}, 14: {}, 15: {}, 16: {}, 17: {}, 18: {}, 19: {}, 20: {}, 21: {},
                        22: {}, 23: {}, 24: {}, 25: {}, 26: {}, 27: {}, 28: {}, 29: {}, 30: {}, 31: {}, 32: {}, 33: {}, 34: {}, 35: {}, 36: {}, 37: {}, 38: {}, 39: {}, 40: {}, 41: {}, 42: {}, 43: {}, 44: {},
@@ -73,10 +73,12 @@ class Yolo:
         """
         x_shape, y_shape = img.shape[1], img.shape[0]
         x1, y1, x2, y2= 0,0,0,0
-        classid = self.classes.index(classname)
-        if classid is not None:
-            cord = self.objects[classid][instanceId]
-            x1, y1, x2, y2 = int(cord[0] * x_shape), int(cord[1] * y_shape), int(cord[2] * x_shape), int(cord[3] * y_shape)
+
+        if classname in self.classes:
+            classid = self.classes.index(classname)
+            if instanceId in self.objects[classid]:
+                cord = self.objects[classid][instanceId]
+                x1, y1, x2, y2 = int(cord[0] * x_shape), int(cord[1] * y_shape), int(cord[2] * x_shape), int(cord[3] * y_shape)
 
         return x1, y1, x2, y2
 
@@ -119,6 +121,7 @@ class Yolo:
         :return: returns the ploted image
         """
         x_shape, y_shape = img.shape[1], img.shape[0]
+
         for i in self.objects:
             if len(self.objects[i]) != 0:
                 for j in self.objects[i]:
@@ -128,6 +131,6 @@ class Yolo:
                         x1, y1, x2, y2 = int(row[0] * x_shape), int(row[1] * y_shape), int(row[2] * x_shape), int(row[3] * y_shape)
                         bgr = (0, 255, 0)
                         cv2.rectangle(img, (x1, y1), (x2, y2), bgr, 2)
-                        cv2.putText(img, self.classes[i] + " "+str(j), (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.9, bgr, 2)
-        return img
+                        cv2.putText(img, self.classes[i] + " "+str(j) +" ("+str(round(float(row[4]),2))+")", (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.9, bgr, 2)
 
+        return img
