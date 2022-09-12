@@ -19,7 +19,7 @@ class Drone:
         self.fb= 0
         self.updw= 0
         self.lfrt= 0
-        self.fb_range= (25,60)
+        self.fb_range= (50,60)
         self.pid = [0.5,0.5,0]
 
     def getImage(self):
@@ -36,34 +36,35 @@ class Drone:
         elif area_ratio == 0:
             self.fb = 0
         elif area_ratio < self.fb_range[0]:
-            front_error = self.fb_range[0]-area_ratio
+            front_error = (self.fb_range[0]-area_ratio)*2
             self.fb= self.pid[0] * front_error + self.pid[1]* (front_error- pErrors[0])
             self.fb=int(np.clip(self.fb,-100,100))
-            self.fb=10
+            #self.fb=10
         elif area_ratio > self.fb_range[1]:
-            back_error = self.fb_range[1]-area_ratio
+            back_error = (self.fb_range[1]-area_ratio)*2
             self.fb = self.pid[0] * back_error + self.pid[1] * (back_error - pErrors[1])
             self.fb=int(np.clip(self.fb,-100,100))
-            self.fb=10
+            #self.fb=10
 
         # Correcting speed for left and right movements
         if x == 0:
             self.lfrt=0
         else:
             lfrt_error = x - (w/2)
-            lfrt_error = (lfrt_error* 100)/w
+            lfrt_error = (lfrt_error* 200)/w
             self.lfrt =  self.pid[0] * lfrt_error + self.pid[1]* (lfrt_error- pErrors[2])
             self.lfrt= int(np.clip(self.lfrt,-100,100))
-            if lfrt_error > 0:
+            """if lfrt_error > 0:
                 self.lfrt=10
             else:
-                self.lfrt=-10
+                self.lfrt=-10"""
 
         # Correction seep for up and down movements
         if y == 0:
             self.updw=0
         else:
             updw_error = y - h//2
+            updw_error = (updw_error* 200)/h
             self.updw =  self.pid[0] * updw_error + self.pid[1]* (updw_error- pErrors[3])
             self.updw= int(np.clip(self.updw,-100,100))
             """if updw_error > 0:
