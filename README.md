@@ -113,10 +113,8 @@ Project Link: [https://github.com/Aminekabene/Drone_Auto-Pilot](https://github.c
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/Aminekabene/Drone_Auto-Pilot/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/Aminekabene/Drone_Auto-Pilot/blob/main/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/aminekabene/Drone_Auto-Pilot.svg?style=for-the-badge
+[license-url]: https://github.com/Aminekabene/Drone_Auto-Pilot/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/amine-kabene/
 
