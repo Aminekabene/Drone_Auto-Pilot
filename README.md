@@ -48,7 +48,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-As you can see, the Dronie can detect and track multiple objects in a frame. Once a target is selected, the drone will track the selected object relative to its position in the frame.
+As you can see, Dronie can detect and track multiple objects in a frame. Once a target is selected, the drone will track the selected object relative to its position in the frame.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## The Detector
