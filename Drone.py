@@ -39,12 +39,10 @@ class Drone:
             front_error = (self.fb_range[0]-area_ratio)*2
             self.fb= self.pid[0] * front_error + self.pid[1]* (front_error- pErrors[0])
             self.fb=int(np.clip(self.fb,-100,100))
-            #self.fb=10
         elif area_ratio > self.fb_range[1]:
             back_error = (self.fb_range[1]-area_ratio)*2
             self.fb = self.pid[0] * back_error + self.pid[1] * (back_error - pErrors[1])
             self.fb=int(np.clip(self.fb,-100,100))
-            #self.fb=10
 
         # Correcting speed for left and right movements
         if x == 0:
@@ -54,10 +52,6 @@ class Drone:
             lfrt_error = (lfrt_error* 200)/w
             self.lfrt =  self.pid[0] * lfrt_error + self.pid[1]* (lfrt_error- pErrors[2])
             self.lfrt= int(np.clip(self.lfrt,-100,100))
-            """if lfrt_error > 0:
-                self.lfrt=10
-            else:
-                self.lfrt=-10"""
 
         # Correction seep for up and down movements
         if y == 0:
@@ -67,14 +61,10 @@ class Drone:
             updw_error = (updw_error* 200)/h
             self.updw =  self.pid[0] * updw_error + self.pid[1]* (updw_error- pErrors[3])
             self.updw= int(np.clip(self.updw,-100,100))
-            """if updw_error > 0:
-                self.updw=-10
-            else:
-                self.updw=10"""
 
 
         print("Front & back speed: "+str(self.fb) + ", Left & Right speed: " + str(self.lfrt)+ ", Up and Down speed: "+str(self.updw))
-        self.me.send_rc_control(self.lfrt,0,0,0)
+        self.me.send_rc_control(self.lfrt,self.fb,self.updw*-1,0)
 
         return front_error, back_error, lfrt_error, updw_error
 

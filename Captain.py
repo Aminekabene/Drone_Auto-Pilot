@@ -36,6 +36,6 @@ while True:
 
     cv2.imshow("Object Tracking",img)
 
-    if cv2.waitKey(1)== 13:
+    if cv2.waitKey(1)== 13: # if the Enter key is pressed
         mydrone.stop()
         break
